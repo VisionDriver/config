@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+# シェバンでスクリプトをシェル(sh)で実行することを指定する
+
+# loading sa (Space Accessの権限をロード)
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# global settings (グローバル設定)
+yabai -m config mouse_follows_focus off # マウスの位置によってフォーカスが移動しない
+yabai -m config focus_follows_mouse on # フォーカスがマウスの位置に従って切り替わる
+yabai -m config window_origin_display default # 新しいウィンドウはデフォルトの画面に作成される
+yabai -m config window_placement second_child # 新しいウィンドウは二番目の子ウィンドウとして配置される
+yabai -m config window_topmost off # ウィンドウを常に最前面に表示しない
+yabai -m config window_shadow on # ウィンドウの影をオンにする
+yabai -m config window_opacity off # ウィンドウの不透明度をオフにする
+yabai -m config window_opacity_duration 0.0 # ウィンドウの不透明度の変化にかかる時間を0秒に設定
+yabai -m config active_window_opacity 1.0 # アクティブなウィンドウの不透明度を100%に設定
+yabai -m config normal_window_opacity 0.90 # 非アクティブなウィンドウの不透明度を90%に設定
+yabai -m config window_border on # ウィンドウの境界線を非表示にする
+yabai -m config window_border_width 12 # ウィンドウの境界線の幅を6ピクセルに設定
+yabai -m config active_window_border_color 0x00ffff # アクティブなウィンドウの境界線の色を設定
+yabai -m config normal_window_border_color 0xff555555 # 非アクティブなウィンドウの境界線の色を設定
+yabai -m config insert_feedback_color 0xffd75f5f # ウィンドウ挿入時のフィードバック色を設定
+yabai -m config split_ratio 0.50 # ウィンドウを分割する際の比率を50%に設定
+yabai -m config auto_balance off # ウィンドウサイズの自動調整をオフにする
+yabai -m config mouse_modifier fn # マウスの動作にfnキーを使用する
+yabai -m config mouse_action1 move # fnキーを押しながらマウスを動かすと、ウィンドウが移動する
+yabai -m config mouse_action2 resize # fnキーを押しながらマウスの右ボタンをクリックすると、ウィンドウのサイズ変更ができる
+yabai -m config mouse_drop_action swap # ウィンドウをマウスで別のSpace/ウィンドウにドロップすると、位置を交換する
+
+# general space settings (一般的なスペースの設定)
+yabai -m config layout bsp # レイアウトをBinary Space Partitioningに設定
+
+# in external display, top padding is different (外部ディスプレイでは上部余白が異なる)
+# on M1 or later macbook, the notch space working as padding (M1以降のMacBookでは、ノッチ部分がパディングとして機能する)
+DISPLAY_UUID=37D8832A-2D66-02CA-B9F7-8F30A301B230 # 内蔵ディスプレイのUUIDを設定
+BAR_PADDING=50 # 外部ディスプレイの上部余白を50ピクセルに設定する変数を定義
+SPACES_ON_SUB=$(yabai -m query --displays | jq ".[].uuid != \\"${DISPLAY_UUID}\\" | .spaces[]") # 外部ディスプレイのSpace IDを取得
+for idx in ${SPACES_ON_SUB} # 外部ディスプレイのSpace IDをループで処理
+do
+  yabai -m config --space "$idx" top_padding "$BAR_PADDING" # 外部ディスプレイのSpace IDに対して上部余白を$BAR_PADDINGに設定
+done
+
+# Rules (アプリケーションごとのウィンドウ管理ルール)
+yabai -m rule --add app="^System Settings$" manage=off # "System Settings"アプリのウィンドウを管理しない
+# 同様に、他のアプリケーションに対してもルールを設定
+
+echo "yabai configuration loaded.." # 設定が正常にロードされたことを示すメッセージを出力

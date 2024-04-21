@@ -1,0 +1,77 @@
+# focus window
+alt - x : yabai -m window --focus recent  # 最近使用したウィンドウにフォーカスを移動
+alt - h : yabai -m window --focus west  # 西側(左側)のウィンドウにフォーカスを移動
+alt - j : yabai -m window --focus south  # 南側(下側)のウィンドウにフォーカスを移動
+alt - k : yabai -m window --focus north  # 北側(上側)のウィンドウにフォーカスを移動
+alt - l : yabai -m window --focus east  # 東側(右側)のウィンドウにフォーカスを移動
+alt - n: yabai -m window --focus next || yabai -m display --focus next
+alt - p: yabai -m window --focus prev || yabai -m display --focus prev
+
+# swap window
+shift + alt - x : yabai -m window --swap recent  # 最近使用したウィンドウと現在のウィンドウの位置を入れ替え
+shift + alt - h : yabai -m window --swap west  # 西側のウィンドウと現在のウィンドウの位置を入れ替え
+shift + alt - j : yabai -m window --swap south  # 南側のウィンドウと現在のウィンドウの位置を入れ替え
+shift + alt - k : yabai -m window --swap north  # 北側のウィンドウと現在のウィンドウの位置を入れ替え
+shift + alt - l : yabai -m window --swap east  # 東側のウィンドウと現在のウィンドウの位置を入れ替え
+# Swap window between displays  
+shift + alt - m : yabai -m window --swap disk # 現在のウィンドウと他のディスプレイ上のウィンドウを入れ替える
+
+# move window
+shift + cmd - h : yabai -m window --warp west  # 現在のウィンドウを西側に移動
+shift + cmd - j : yabai -m window --warp south  # 現在のウィンドウを南側に移動
+shift + cmd - k : yabai -m window --warp north  # 現在のウィンドウを北側に移動
+shift + cmd - l : yabai -m window --warp east  # 現在のウィンドウを東側に移動
+# Move window between displays
+shift + cmd - n : yabai -m window --display next # 現在のウィンドウを次のディスプレイに移動
+shift + cmd - p : yabai -m window --display prev # 現在のウィンドウを前のディスプレイに移動
+
+# window resizing
+ctrl + shift - h: yabai -m window --resize left:-50:0 || yabai -m window --resize right:-50:0
+ctrl + shift - l: yabai -m window --resize right:50:0 || yabai -m window --resize left:50:0
+ctrl + shift - j: yabai -m window --resize bottom:0:20 || yabai -m window --resize top:0:20
+ctrl + shift - k: yabai -m window --resize top:0:-20 || yabai -m window --resize bottom:0:-20
+
+# rotate tree
+alt - r : yabai -m space --rotate 90  # 現在のスペースのウィンドウレイアウトを90度回転
+
+# mirror tree y-axis 
+alt - y : yabai -m space --mirror y-axis  # 現在のスペースのウィンドウレイアウトをy軸で反転
+
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis  # 現在のスペースのウィンドウレイアウトをx軸で反転
+
+# toggle desktop offset
+alt - a : yabai -m space --toggle padding && yabai -m space --toggle gap  # ウィンドウの余白(padding)とウィンドウ間の隙間(gap)を切り替え
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen  # 現在のウィンドウをフルスクリーン表示/解除
+
+# toggle window native fullscreen 
+shift + alt - f : yabai -m window --toggle native-fullscreen  # 現在のウィンドウをネイティブフルスクリーン表示/解除
+
+# toggle window split type
+alt - e : yabai -m window --toggle split  # 現在のウィンドウの分割タイプを切り替え
+
+# float / unfloat window and restore position
+alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2  # 現在のウィンドウをフロート/アンフロート状態に切り替え、位置を4x4グリッドで指定した位置に配置
+
+# toggle sticky window
+alt - s : yabai -m window --toggle sticky  # 現在のウィンドウをスティッキー状態に切り替え
+
+# restart yabai
+shift + alt - r : yabai --restart-service && osascript -e 'tell application id "tracesOf.Uebersicht" to reload widget id "simple-bar-index-jsx"' # Yabaiを再起動し、Übersichtのウィジェットを再読み込み
+
+# restart skhd
+shift + ctrl - r : skhd --restart-service  # skhdを再起動
+
+# Close app
+alt - q : yabai -m window --close  # 現在のアプリケーションを閉じる
+
+# Focus spaces (require sa)
+alt - 1 : yabai -m space --focus 1  # Space 1にフォーカスを移動
+alt - 2 : yabai -m space --focus 2  # Space 2にフォーカスを移動
+# ... 以下同様に Space 3 ~ 10 がある
+
+# Move spaces (require sa)
+shift + alt - 1 : yabai -m window --space 1  # 現在のウィンドウをSpace 1に移動
+shift + alt - 2 : yabai -m window --space 2  # 現在のウィンドウをSpace 2に
