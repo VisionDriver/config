@@ -18,7 +18,7 @@ config.leader = { key = ",", mods = "CTRL", timeout_milliseconds = 2000 }
 
 -- colors
 config.color_scheme = "nord"
-config.window_background_opacity = 0.93
+config.window_background_opacity = 0.85
 
 -- font
 config.font = require("wezterm").font("MesloLGS NF")

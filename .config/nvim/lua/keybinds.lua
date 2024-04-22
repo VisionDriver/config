@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', '<Leader>fb', '<cmd>Telescope buffers<CR>', { norem
 -- help_tagsを呼び出すショートカット
 vim.api.nvim_set_keymap('n', '<Leader>fh', '<cmd>Telescope help_tags<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader><Esc>', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tr', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>h', '<C-w><C-h>')
 vim.keymap.set('n', '<leader>j', '<C-w><C-j>')

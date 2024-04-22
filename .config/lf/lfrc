@@ -72,6 +72,7 @@ map mf mkfile
 map md mkdir
 map bg setwallpaper
 map C clear
+map q $zsh
 
 # Movement
 map gD cd ~/documents
