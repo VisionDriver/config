@@ -1,5 +1,5 @@
 -- leader
-vim.api.nvim_set_var('mapleader', ',')
+vim.api.nvim_set_var('mapleader', '`')
 vim.api.nvim_set_var('maplocalleader', '\\')
 
 vim.keymap.set('n', ':', ';')
@@ -36,6 +36,7 @@ vim.keymap.set('n', '<leader>h', '<C-w><C-h>')
 vim.keymap.set('n', '<leader>j', '<C-w><C-j>')
 vim.keymap.set('n', '<leader>k', '<C-w><C-k>')
 vim.keymap.set('n', '<leader>l', '<C-w><C-l>')
+vim.keymap.set('n', '<leader>q', '<C-w>c')
 
 vim.keymap.set('n', '<Tab>', ':bnext<CR>')
 vim.keymap.set('n', '<S-Tab>', ':bprev<CR>')

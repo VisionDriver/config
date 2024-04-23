@@ -18,7 +18,15 @@ local plugins = {
             opts.config.header = vim.split(logo, "\n")
         end,
     },
-
+    {
+        "glepnir/lspsaga.nvim",
+        event = { "LspAttach", "BufRead" },
+        config = function()
+            require 'extensions.lspsaga' end,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons", -- 必要な依存関係
+        }
+    },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter", -- 例: InsertEnterイベントで遅延ロード
