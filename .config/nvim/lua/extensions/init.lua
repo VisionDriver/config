@@ -28,6 +28,7 @@ local plugins = {
     },
     {
         "windwp/nvim-ts-autotag",
+        event = { 'VimEnter' },
         config = function()
             require("nvim-ts-autotag").setup()
         end,
