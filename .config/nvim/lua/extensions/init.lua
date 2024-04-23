@@ -208,6 +208,12 @@ local plugins = {
         ---},
     },
     {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        dependencies = {
+            'numToStr/Comment.nvim',
+        },
+    },
+    {
         'hrsh7th/nvim-cmp',
         event = { 'VimEnter' },
         config = function() require 'extensions.nvim-cmp' end,
