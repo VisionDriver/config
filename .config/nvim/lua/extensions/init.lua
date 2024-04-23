@@ -19,6 +19,16 @@ local plugins = {
         end,
     },
     {
+        "pocco81/auto-save.nvim",
+        event = { 'VimEnter' },
+        keys = {
+            { "<leader>as", "<cmd>ASToggle<cr>"},
+        },
+        config = function()
+            require("extensions.auto-save")
+        end,
+    },
+    {
         "glepnir/lspsaga.nvim",
         event = { "LspAttach", "BufRead" },
         config = function()
