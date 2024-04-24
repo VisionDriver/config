@@ -8,28 +8,22 @@ vim.keymap.set('n', '<leader>q', '<C-w>c')
 
 lspsaga:
 
--- vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 -- この行は、ノーマルモードで Ctrl+j を押すと、次の診断メッセージにジャンプするコマンドを割り当てています。
 -- 診断メッセージとは、コードの構文エラーやスタイル上の問題などを指摘するものです。
 vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
--- vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
 -- この行は、ノーマルモードで K を押すと、カーソル位置の要素に関するドキュメンテーションをポップアップで表示するコマンドを割り当てています。
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
 
--- vim.keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
 -- この行は、ノーマルモードで gd を押すと、カーソル位置の要素の定義箇所を検索するウィンドウを開くコマンドを割り当てています。
 vim.keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
 
--- vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
 -- この行は、インサートモードで Ctrl+k を押すと、入力中の関数の引数のドキュメンテーションをポップアップで表示するコマンドを割り当てています。
 vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
 
--- vim.keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
 -- この行は、ノーマルモードで gp を押すと、カーソル位置の要素の定義箇所をプレビューウィンドウで表示するコマンドを割り当てています。
 vim.keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
 
--- vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 -- この行は、ノーマルモードで gr を押すと、カーソル位置の要素の名前を変更するウィンドウを開くコマンドを割り当てています。
 vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 
@@ -73,3 +67,6 @@ Navbuddy:
 
 <leader>nb
 
+Prettier:
+
+<leader>fmt

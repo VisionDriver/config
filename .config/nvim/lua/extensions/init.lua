@@ -19,6 +19,25 @@ local plugins = {
         end,
     },
     {
+        "MunifTanjim/prettier.nvim",
+        event = { 'VimEnter' },
+        keys = {
+            { "<leader>fmt", "<cmd>Prettier<cr>"},
+        },
+
+        config = function()
+            require("extensions.prettier")
+        end
+    },
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        event = { 'VimEnter' },
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("extensions.null-ls")
+        end,
+    },
+    {
         "pocco81/auto-save.nvim",
         event = { 'VimEnter' },
         keys = {
@@ -46,7 +65,7 @@ local plugins = {
     },
     {
         "windwp/nvim-ts-autotag",
-        event = { 'VimEnter' },
+        event = "InsertEnter", -- 例: InsertEnterイベントで遅延ロード
         config = function()
             require("nvim-ts-autotag").setup()
         end,
