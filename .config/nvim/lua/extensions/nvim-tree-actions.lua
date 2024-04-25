@@ -83,9 +83,8 @@ local command = {
   { 'y',     fs.copy.filename,               'Copy Name' },
   { 'Y',     fs.copy.relative_path,          'Copy Relative Path' },
 
-  --{ '<2-LeftMouse>',  node.open.edit,        'Open' },
-
-  --{ '<Space>', actionsMenu,                  'Command' },
+  { '<2-LeftMouse>',  node.open.edit,        'Open' },
+  { '<Space>', actionsMenu,                  'Command' },
 }
 
 local function createTreeActions()

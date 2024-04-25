@@ -183,6 +183,7 @@ local plugins = {
     },
     {
         'nvim-tree/nvim-tree.lua',
+        event = { 'VimEnter' },
         keys = {
             '<leader>ex',
         },
